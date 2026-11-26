@@ -6,6 +6,7 @@ import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react"
 
 import { routes } from "@/content/site";
 import { useDismiss, type DismissReason } from "@/hooks/useDismiss";
+import { useCartCount } from "@/lib/cart/store";
 
 import { CartPreview } from "./CartPreview";
 import { DesktopNavigation } from "./DesktopNavigation";
@@ -16,16 +17,13 @@ import { SearchPanel } from "./SearchPanel";
 const iconButton =
   "relative grid size-11 place-items-center rounded-full text-ink transition-colors duration-200 hover:bg-gold-pale hover:text-burgundy aria-expanded:bg-gold-pale aria-expanded:text-burgundy";
 
-type HeaderProps = {
-  /** Number of items in the cart. Wire this to the cart store when it exists. */
-  cartCount?: number;
-};
 
 /**
  * Main site header. Sticky; the large logo overlaps the hero at the top of
  * the page and shrinks into the bar once the visitor scrolls.
  */
-export function Header({ cartCount = 0 }: HeaderProps) {
+export function Header() {
+  const cartCount = useCartCount();
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);

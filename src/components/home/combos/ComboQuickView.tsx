@@ -119,7 +119,7 @@ export function ComboQuickView({ combo, onClose }: ComboQuickViewProps) {
               {combo.availability === "out_of_stock" ? (
                 <p className="rounded-xl bg-umber/15 py-3 text-center font-display font-semibold text-umber">Out of Stock</p>
               ) : (
-                <AddToCartButton product={combo} />
+                <AddToCartButton itemKey={`combo:${combo.slug}`} name={combo.name} />
               )}
               <Link
                 href={comboHref(combo.slug)}

@@ -108,3 +108,80 @@
 main h2[id] {
   scroll-margin-top: 7.5rem;
 }
+
+/* ------------------------------------------------------------------
+   Heritage motion system (all disabled for prefers-reduced-motion)
+   ------------------------------------------------------------------ */
+
+/* Line art that draws itself when scrolled into view (see DrawOnView). */
+[data-draw="pending"] path {
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+[data-draw="drawn"] path {
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Tiny floating gold particles (see GoldParticles). */
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(6px, -18px, 0);
+    opacity: 0.7;
+  }
+}
+
+/* Gentle entrance for every page (app/template.tsx). */
+@keyframes page-in {
+  from {
+    opacity: 0.35;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Warm paper texture + cream gradient used by inner pages instead of flat white. */
+.heritage-paper {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 0%, rgb(251 239 210 / 0.55), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgb(241 226 201 / 0.5), transparent 70%),
+    linear-gradient(180deg, #fffaf2, #fbf3e6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-draw] path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}
+
+/* Heritage: golden sunlight glow-in (once) and slow mango-leaf sway (desktop, hover devices only). */
+@keyframes sun-glow {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes leaf-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}

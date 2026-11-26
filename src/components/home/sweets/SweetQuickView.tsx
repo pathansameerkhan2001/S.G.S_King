@@ -9,7 +9,7 @@ import { AddToCartButton } from "@/components/product/AddToCartButton";
 import { ProductPrice } from "@/components/product/ProductPrice";
 import { ShareProductButton } from "@/components/product/ShareProductButton";
 import { productHref } from "@/content/products";
-import { variantKey, type SweetProduct } from "@/content/sweets";
+import type { SweetProduct } from "@/content/sweets";
 
 export const SWEET_QUICK_VIEW_TITLE_ID = "sweet-quick-view-title";
 
@@ -91,7 +91,7 @@ export function SweetQuickView({ product }: { product: SweetProduct }) {
             <p className="rounded-xl bg-umber/15 py-3 text-center font-display font-semibold text-umber">Out of Stock</p>
           ) : (
             <div className="grid grid-cols-[1fr_auto] items-center gap-2">
-              <AddToCartButton product={{ id: variantKey(product, variant), name: `${product.name} (${variant.label})` }} />
+              <AddToCartButton itemKey={`product:${product.slug}`} variantId={variant.id} name={`${product.name} (${variant.label})`} />
               <ShareProductButton productName={product.name} path={href} onStatus={setShareStatus} />
             </div>
           )}

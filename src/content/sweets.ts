@@ -11,6 +11,8 @@
  * There are no ratings or reviews; never add invented ones.
  */
 
+import type { CategorySlug } from "./categories";
+
 export type SweetCategory = "chikkis" | "laddus" | "traditional-sweets" | "jaggery-treats";
 
 export const sweetFilters: { id: SweetCategory | "all"; label: string }[] = [
@@ -37,6 +39,8 @@ export type SweetVariant = {
 };
 
 export type SweetProduct = {
+  /** Shared site category (categories.ts) used by shop and category pages. */
+  categorySlug: CategorySlug;
   id: string;
   slug: string;
   name: string;
@@ -59,6 +63,7 @@ const ladduImage = (alt: string) => ({ src: "/images/collections/traditional-lad
 const sweets: SweetProduct[] = [
   {
     id: "sweet-peanut-chikki",
+    categorySlug: "sweets-chikkis",
     slug: "peanut-chikki",
     name: "Peanut Chikki",
     description: "Traditional peanut and jaggery treat with a satisfying crunch.",
@@ -74,6 +79,7 @@ const sweets: SweetProduct[] = [
   },
   {
     id: "sweet-sesame-til-chikki",
+    categorySlug: "sweets-chikkis",
     slug: "sesame-til-chikki",
     name: "Sesame Til Chikki",
     description: "Toasted sesame set in a classic, sweet traditional flavour.",
@@ -89,6 +95,7 @@ const sweets: SweetProduct[] = [
   },
   {
     id: "sweet-dry-fruit-laddu",
+    categorySlug: "traditional-laddus",
     slug: "traditional-dry-fruit-laddu",
     name: "Traditional Dry Fruit Laddu",
     description: "A rich, nutty traditional sweet packed with dry fruits.",
@@ -104,6 +111,7 @@ const sweets: SweetProduct[] = [
   },
   {
     id: "sweet-coconut-sweet",
+    categorySlug: "sweets-chikkis",
     slug: "coconut-sweet",
     name: "Coconut Sweet",
     description: "A soft, traditional coconut-based sweet made in small batches.",
@@ -116,6 +124,7 @@ const sweets: SweetProduct[] = [
   },
   {
     id: "sweet-besan-laddu",
+    categorySlug: "traditional-laddus",
     slug: "besan-laddu",
     name: "Besan Laddu",
     description: "Melt-in-the-mouth gram flour laddus, a festive classic.",
@@ -131,6 +140,7 @@ const sweets: SweetProduct[] = [
   },
   {
     id: "sweet-jaggery-groundnut-laddu",
+    categorySlug: "traditional-laddus",
     slug: "jaggery-groundnut-laddu",
     name: "Jaggery Groundnut Laddu",
     description: "Roasted groundnuts bound with jaggery into wholesome laddus.",

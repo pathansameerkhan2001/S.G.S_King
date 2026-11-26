@@ -126,7 +126,7 @@ export function ComboProductCard({ combo, onQuickView }: ComboProductCardProps) 
               Out of Stock
             </button>
           ) : (
-            <AddToCartButton product={combo} />
+            <AddToCartButton itemKey={`combo:${combo.slug}`} name={combo.name} />
           )}
           <button
             type="button"

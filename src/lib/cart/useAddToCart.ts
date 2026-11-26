@@ -2,25 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import type { Product } from "@/content/products";
+import { addToCart } from "./store";
 
-export type AddToCartStatus = "idle" | "adding" | "added" | "error";
+export type AddToCartStatus = "idle" | "added" | "error";
+
+const ADDED_RESET_MS = 1800;
 
 /**
- * DEMO ONLY — there is no cart backend yet.
- * Simulates a short request so the button can show its states. Nothing is
- * stored. FUTURE: replace this function with the real cart API / store call
- * (and update the header cart count from that store).
+ * Adds an item to the shared cart and exposes a short-lived "added" state
+ * for button feedback.
  */
-async function addToCartDemo(product: Pick<Product, "id">, quantity: number): Promise<void> {
-  void product;
-  void quantity;
-  await new Promise((resolve) => setTimeout(resolve, 450));
-}
-
-const ADDED_RESET_MS = 2000;
-
-export function useAddToCart(product: Pick<Product, "id">) {
+export function useAddToCart(itemKey: string, variantId?: string) {
   const [status, setStatus] = useState<AddToCartStatus>("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -32,18 +24,14 @@ export function useAddToCart(product: Pick<Product, "id">) {
   );
 
   const add = useCallback(
-    async (quantity = 1) => {
+    (quantity = 1) => {
       if (resetTimer.current) clearTimeout(resetTimer.current);
-      setStatus("adding");
-      try {
-        await addToCartDemo(product, quantity);
-        setStatus("added");
-      } catch {
-        setStatus("error");
-      }
+      const ok = addToCart(itemKey, variantId, quantity);
+      setStatus(ok ? "added" : "error");
       resetTimer.current = setTimeout(() => setStatus("idle"), ADDED_RESET_MS);
+      return ok;
     },
-    [product],
+    [itemKey, variantId],
   );
 
   return { status, add };

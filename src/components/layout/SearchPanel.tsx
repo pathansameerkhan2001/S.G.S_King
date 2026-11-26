@@ -56,7 +56,7 @@ export function SearchPanel({ open, id, onClose, panelRef }: SearchPanelProps) {
                   name="q"
                   type="search"
                   autoComplete="off"
-                  placeholder="Search almonds, cashews, dates…"
+                  placeholder="Search laddus, honey, chikkis, masalas…"
                   className="h-12 w-full rounded-xl border border-gold/45 bg-white/70 pl-12 pr-4 font-sans text-[0.95rem] text-ink placeholder:text-umber/70 focus:border-burgundy focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-gold/40"
                 />
               </div>

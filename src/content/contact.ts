@@ -21,6 +21,13 @@ export const business = {
   origin: "Kadapa, Rayalaseema, Andhra Pradesh.",
 } as const;
 
+/**
+ * Business hours (TO CONFIRM). Leave empty until the business confirms
+ * them; the contact page then shows "to be confirmed" instead of guessing.
+ * Example: [{ days: "Monday – Saturday", hours: "9:00 AM – 7:00 PM" }]
+ */
+export const businessHours: { days: string; hours: string }[] = [];
+
 export const telHref = (phone: string) => `tel:+91${phone.replace(/\D/g, "")}`;
 export const mailHref = (email: string) => `mailto:${email}`;
 export const whatsappHref = (phone: string, text?: string) =>

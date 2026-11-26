@@ -70,7 +70,7 @@ export function BestSellerProductCard({ product, showWishlist = true }: BestSell
 
         {/* Wishlist + share */}
         <div className="absolute right-2 top-2 flex flex-col gap-1.5 min-[400px]:right-2.5 min-[400px]:top-2.5 min-[400px]:gap-2 sm:right-3 sm:top-3">
-          {showWishlist && <WishlistButton productId={product.id} productName={product.name} />}
+          {showWishlist && <WishlistButton itemKey={`product:${product.slug}`} productName={product.name} />}
           <ShareProductButton productName={product.name} path={href} onStatus={setShareStatus} />
         </div>
 
@@ -106,7 +106,7 @@ export function BestSellerProductCard({ product, showWishlist = true }: BestSell
         <ProductPrice product={product} />
 
         <div className="mt-auto pt-1.5 sm:pt-2">
-          <AddToCartButton product={product} />
+          <AddToCartButton itemKey={`product:${product.slug}`} name={product.name} />
         </div>
       </div>
     </article>

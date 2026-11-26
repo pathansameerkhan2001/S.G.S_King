@@ -56,16 +56,19 @@ export const navigation: NavItem[] = [
   { kind: "link", label: "Home", href: "/" },
   { kind: "link", label: "Shop", href: "/shop" },
   { kind: "categories", label: "Categories", href: "/shop" },
-  { kind: "link", label: "Our Story", href: "/our-story" },
+  { kind: "link", label: "Our Story", href: "/about" },
   { kind: "link", label: "Contact", href: "/contact" },
 ];
 
 export const routes = {
   shop: "/shop",
-  ourStory: "/our-story",
+  ourStory: "/about",
+  wishlist: "/wishlist",
+  checkout: "/checkout",
+  contact: "/contact",
   account: "/account",
   cart: "/cart",
-  search: "/shop",
+  search: "/search",
 } as const;
 
 export const hero = {

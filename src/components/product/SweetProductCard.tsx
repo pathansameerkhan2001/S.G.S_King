@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { discountPercent, productHref } from "@/content/products";
-import { variantKey, type SweetProduct } from "@/content/sweets";
+import type { SweetProduct } from "@/content/sweets";
 
 import { AddToCartButton } from "./AddToCartButton";
 import { ProductPrice } from "./ProductPrice";
@@ -70,7 +70,7 @@ export function SweetProductCard({ product, onQuickView }: SweetProductCardProps
         </div>
 
         <div className="absolute right-3 top-3 flex flex-col gap-2">
-          <WishlistButton productId={product.id} productName={product.name} />
+          <WishlistButton itemKey={`product:${product.slug}`} productName={product.name} />
           <ShareProductButton productName={product.name} path={href} onStatus={setShareStatus} />
         </div>
 
@@ -123,7 +123,7 @@ export function SweetProductCard({ product, onQuickView }: SweetProductCardProps
               Out of Stock
             </button>
           ) : (
-            <AddToCartButton product={{ id: variantKey(product, variant), name: `${product.name} (${variant.label})` }} />
+            <AddToCartButton itemKey={`product:${product.slug}`} variantId={variant.id} name={`${product.name} (${variant.label})`} />
           )}
           <button
             type="button"

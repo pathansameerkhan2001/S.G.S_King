@@ -2,20 +2,31 @@ import type { Metadata, Viewport } from "next";
 
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { FloatingSocialBar } from "@/components/layout/FloatingSocialBar";
+import { FloatingSocialGate } from "@/components/layout/FloatingSocialGate";
 import { Footer } from "@/components/layout/footer/Footer";
 import { Header } from "@/components/layout/Header";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+
+import { siteUrl } from "@/lib/site-url";
 
 import { crimson, manrope } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: "S.G.S King Foods",
+  openGraph: {
+    type: "website",
+    siteName: "S.G.S King Foods",
+    locale: "en_IN",
+    images: [{ url: "/images/hero/hero-dry-fruits.jpg", alt: "S.G.S King Foods" }],
+  },
   title: {
-    default: "S.G.S King | Premium Dry Fruits & Nuts from Kadapa, Rayalaseema",
-    template: "%s | S.G.S King",
+    default: "S.G.S King Foods | Traditional Sweets, Laddus & Foods from Kadapa, Rayalaseema",
+    template: "%s | S.G.S King Foods",
   },
   description:
-    "A premium selection of handpicked dry fruits, nuts and seeds from Kadapa, Rayalaseema, packed with purity, freshness and natural nutrition. Pan India delivery.",
+    "Traditional laddus, sweets & chikkis, honey, roasted nuts, masalas, instant mixes and millet powders from Kadapa, Rayalaseema. Handpicked, hygienically packed, with Pan India delivery.",
 };
 
 export const viewport: Viewport = {
@@ -37,7 +48,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           <main id="main">{children}</main>
           <Footer />
-          <FloatingSocialBar />
+          <FloatingSocialGate>
+            <FloatingSocialBar />
+          </FloatingSocialGate>
         </MotionProvider>
       </body>
     </html>

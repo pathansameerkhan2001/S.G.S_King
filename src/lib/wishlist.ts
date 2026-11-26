@@ -1,35 +1,28 @@
 "use client";
 
-import { useCallback, useSyncExternalStore } from "react";
+import { useCallback } from "react";
+
+import { createPersistentStore, isStringArray } from "@/lib/persistentStore";
 
 /**
- * Frontend-only wishlist store (in memory, shared across components).
- * FUTURE: replace the body of `toggle` with an API call for signed-in
- * users and hydrate `saved` from their account.
+ * Shared wishlist (frontend only, persisted in localStorage).
+ * Stores catalogue item keys (`product:slug` / `combo:slug`).
+ * FUTURE: sync with the customer's account once authentication exists.
  */
-const saved = new Set<string>();
-const listeners = new Set<() => void>();
-let version = 0;
+const store = createPersistentStore<string[]>("sgs-wishlist-v1", [], isStringArray);
 
-function subscribe(listener: () => void) {
-  listeners.add(listener);
-  return () => listeners.delete(listener);
+export function toggleWishlist(key: string) {
+  store.set((keys) => (keys.includes(key) ? keys.filter((k) => k !== key) : [key, ...keys]));
 }
 
-function toggle(id: string) {
-  if (saved.has(id)) saved.delete(id);
-  else saved.add(id);
-  version += 1;
-  listeners.forEach((listener) => listener());
+export function removeFromWishlist(key: string) {
+  store.set((keys) => keys.filter((k) => k !== key));
 }
 
-export function useWishlist(id: string) {
-  // `version` changes on every toggle so subscribers re-read the Set.
-  const isSaved = useSyncExternalStore(
-    subscribe,
-    () => version >= 0 && saved.has(id),
-    () => false,
-  );
-  const toggleSaved = useCallback(() => toggle(id), [id]);
-  return { isSaved, toggle: toggleSaved };
+export const useWishlistKeys = store.useStore;
+
+export function useWishlist(key: string) {
+  const keys = useWishlistKeys();
+  const toggle = useCallback(() => toggleWishlist(key), [key]);
+  return { isSaved: keys.includes(key), toggle };
 }

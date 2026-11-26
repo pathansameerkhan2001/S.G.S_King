@@ -1,4 +1,5 @@
 import { GoldFlourish, HeritageLandscape, LeafSprig, Mandala } from "@/components/decor/Ornaments";
+import { DrawOnView } from "@/components/heritage/DrawOnView";
 import { footerCopy } from "@/content/footer";
 
 import { FooterBottomBar } from "./FooterBottomBar";
@@ -18,7 +19,9 @@ export function Footer() {
       {/* Heritage decoration (decorative only, low opacity) */}
       <Mandala className="pointer-events-none absolute -right-24 -top-24 -z-10 size-[320px] text-gold opacity-[0.12]" />
       <Mandala className="pointer-events-none absolute -left-28 -top-28 -z-10 hidden size-[300px] text-gold opacity-[0.1] lg:block" />
-      <HeritageLandscape className="pointer-events-none absolute bottom-0 left-0 -z-10 h-auto w-[min(70%,560px)] text-sepia opacity-35" />
+      <DrawOnView className="pointer-events-none absolute bottom-0 left-0 -z-10 w-[min(70%,560px)]">
+        <HeritageLandscape className="h-auto w-full text-sepia opacity-35" />
+      </DrawOnView>
       <HeritageLandscape className="pointer-events-none absolute bottom-0 right-0 -z-10 hidden h-auto w-[min(40%,520px)] -scale-x-100 text-sepia opacity-30 md:block" />
 
       <div className="mx-auto max-w-[1440px] px-4 pb-7 pt-8 sm:px-8 sm:pb-8 sm:pt-10 lg:px-10 lg:pt-14 xl:px-16">
