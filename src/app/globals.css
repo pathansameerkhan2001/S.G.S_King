@@ -103,3 +103,8 @@
     animation: none !important;
   }
 }
+
+/* Keep in-page anchor targets (e.g. footer links to section headings) clear of the sticky header */
+main h2[id] {
+  scroll-margin-top: 7.5rem;
+}

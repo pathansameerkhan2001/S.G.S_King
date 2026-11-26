@@ -4,6 +4,7 @@ import { ComboProductsSection } from "@/components/home/combos/ComboProductsSect
 import { HeroSection } from "@/components/home/hero/HeroSection";
 import { QualityTagsStrip } from "@/components/home/quality-tags/QualityTagsStrip";
 import { SweetsSection } from "@/components/home/sweets/SweetsSection";
+import { TestimonialsSection } from "@/components/home/testimonials/TestimonialsSection";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <BestSellersSection />
       <ComboProductsSection />
       <SweetsSection />
+      <TestimonialsSection />
     </>
   );
 }

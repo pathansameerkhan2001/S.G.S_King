@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { FloatingSocialBar } from "@/components/layout/FloatingSocialBar";
+import { Footer } from "@/components/layout/footer/Footer";
 import { Header } from "@/components/layout/Header";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 
@@ -34,6 +36,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <AnnouncementBar />
           <Header />
           <main id="main">{children}</main>
+          <Footer />
+          <FloatingSocialBar />
         </MotionProvider>
       </body>
     </html>

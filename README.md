@@ -16,6 +16,9 @@ npm run build
 | `src/content/categories.ts` | **Single source of truth for product categories** (names, slugs, images, routes) |
 | `src/content/products.ts` | **Product catalogue (demo data)**: names, variants, prices, images, ratings. Replace with API data later |
 | `src/content/combos.ts` | **Combo products (demo data)**: admin-ready shape (items, pack size, availability, display order) |
+| `src/content/contact.ts` | Business email, phones, WhatsApp number, address, social accounts (only accounts with a URL are shown) |
+| `src/content/footer.ts` | Footer links. Links without an `href` are hidden; `CATEGORY_PAGES_LIVE` switches category links from the homepage anchor to `/categories/[slug]` |
+| `src/content/testimonials.ts` | Testimonials (admin-ready shape). Current entries are **demo placeholders** (`isDemo`, shown as "Sample review") |
 | `src/content/qualityTags.ts` | Brand-quality tags under the hero. Claim tags (organic, etc.) are **disabled until verified** |
 | `src/content/sweets.ts` | **Sweets & Chikkis (demo data)**: categories, weight variants, badges, optional ingredients |
 | `src/content/bestSellers.ts` | Best Sellers section copy and trust highlights |
@@ -30,6 +33,10 @@ npm run build
 | `src/components/home/quality-tags/`, `src/components/home/sweets/` | QualityTagsStrip; SweetsSection, SweetsBrowser (filters), SweetQuickView |
 | `src/components/product/` | BestSellerProductCard, ComboProductCard, SweetProductCard, ProductCarousel (generic), QuickViewDialog (generic), AddToCartButton, ShareProductButton, WishlistButton, ProductPrice, ProductRating |
 | `src/lib/` | `share.ts` (Web Share + copy fallback), `wishlist.ts` (frontend-only), `cart/useAddToCart.ts` (**demo, no cart backend**), `format.ts` |
+| `src/components/layout/footer/` | Footer, FooterBrand, FooterLinks, FooterContact, FooterBottomBar |
+| `src/components/home/testimonials/` | TestimonialsSection, TestimonialCard |
+| `src/components/layout/FloatingSocialBar.tsx` | Fixed WhatsApp / Instagram toolbar (right edge) |
+| `src/components/icons/BrandIcons.tsx` | Official WhatsApp & Instagram glyphs (Simple Icons, CC0) |
 | `src/components/decor/Ornaments.tsx` | Heritage SVG line art (mandala, landscape, flourishes) |
 
 ## Assets to replace

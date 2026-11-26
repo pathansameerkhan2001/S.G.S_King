@@ -1,4 +1,5 @@
 import {
+  Droplet,
   FlaskConicalOff,
   HandHeart,
   Heart,
@@ -19,6 +20,7 @@ const icons: Record<QualityTagIcon, LucideIcon> = {
   scroll: ScrollText,
   "hand-heart": HandHeart,
   package: PackageCheck,
+  droplet: Droplet,
   sprout: Sprout,
   shield: ShieldCheck,
   "flask-off": FlaskConicalOff,
