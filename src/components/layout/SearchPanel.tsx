@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { useEffect, useRef, type RefObject } from "react";
 
-import { categories, routes } from "@/content/site";
+import { categories } from "@/content/categories";
+import { routes } from "@/content/site";
 
 type SearchPanelProps = {
   open: boolean;

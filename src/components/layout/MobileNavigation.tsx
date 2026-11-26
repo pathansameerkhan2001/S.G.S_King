@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 
 import { GoldFlourish } from "@/components/decor/Ornaments";
-import { brand, categories, categoryHref, navigation, routes } from "@/content/site";
+import { categories, categoriesBasePath, categoryHref } from "@/content/categories";
+import { brand, navigation, routes } from "@/content/site";
 import { isActivePath } from "@/lib/nav";
 
 import { Logo } from "./Logo";
@@ -122,7 +123,7 @@ export function MobileNavigation({ open, id, onClose }: MobileNavigationProps) {
                         aria-expanded={categoriesOpen}
                         aria-controls={categoriesId}
                         onClick={() => setCategoriesOpen((v) => !v)}
-                        className={`${linkBase} ${linkState(pathname.startsWith("/categories"))}`}
+                        className={`${linkBase} ${linkState(pathname.startsWith(categoriesBasePath))}`}
                       >
                         {item.label}
                         <ChevronDown
@@ -138,7 +139,7 @@ export function MobileNavigation({ open, id, onClose }: MobileNavigationProps) {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                            className="grid grid-cols-2 gap-1 overflow-hidden px-2"
+                            className="grid gap-0.5 overflow-hidden px-2"
                           >
                             {categories.map((category) => (
                               <li key={category.slug}>
@@ -147,7 +148,7 @@ export function MobileNavigation({ open, id, onClose }: MobileNavigationProps) {
                                   onClick={onClose}
                                   className="flex items-center gap-2 rounded-lg px-3 py-2 font-display text-[1.05rem] text-ink transition-colors hover:bg-gold-pale hover:text-burgundy"
                                 >
-                                  <span aria-hidden="true" className="size-1.5 rotate-45 bg-gold" />
+                                  <span aria-hidden="true" className="size-1.5 shrink-0 rotate-45 bg-gold" />
                                   {category.name}
                                 </Link>
                               </li>

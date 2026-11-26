@@ -1,6 +1,7 @@
 /**
  * Site-wide content for S.G.S King.
  * Keep copy and links here so components stay presentation-only.
+ * Product categories live in ./categories.ts (single source of truth).
  */
 
 export const brand = {
@@ -47,24 +48,6 @@ export const announcements: AnnouncementItem[] = [
   { label: "From Kadapa, Rayalaseema", icon: "location", highlight: true },
 ];
 
-export type Category = {
-  name: string;
-  slug: string;
-};
-
-export const categories: Category[] = [
-  { name: "Almonds", slug: "almonds" },
-  { name: "Cashews", slug: "cashews" },
-  { name: "Pistachios", slug: "pistachios" },
-  { name: "Walnuts", slug: "walnuts" },
-  { name: "Dates", slug: "dates" },
-  { name: "Raisins", slug: "raisins" },
-  { name: "Seeds", slug: "seeds" },
-  { name: "Premium Combos", slug: "premium-combos" },
-];
-
-export const categoryHref = (slug: string) => `/categories/${slug}`;
-
 export type NavItem =
   | { kind: "link"; label: string; href: string }
   | { kind: "categories"; label: string; href: string };
@@ -92,5 +75,11 @@ export const hero = {
   description:
     "A premium selection of handpicked dry fruits, nuts and seeds, packed with purity, freshness and natural nutrition.",
   primaryCta: { label: "Explore Dry Fruits", href: "/shop" },
-  secondaryCta: { label: "Our Story", href: "/our-story" },
+} as const;
+
+export const collectionsSection = {
+  eyebrow: "Shop by Category",
+  heading: "Our Collections",
+  description:
+    "Traditional favourites from Rayalaseema, made with care and packed fresh for your home.",
 } as const;

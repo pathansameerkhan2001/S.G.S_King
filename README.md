@@ -13,11 +13,13 @@ npm run build
 
 | Path | Purpose |
 | --- | --- |
-| `src/content/site.ts` | All copy, navigation, categories, routes and image paths |
+| `src/content/categories.ts` | **Single source of truth for product categories** (names, slugs, images, routes) |
+| `src/content/site.ts` | Copy, navigation, routes and brand image paths |
 | `src/app/globals.css` | Brand theme tokens (`bg-burgundy`, `text-gold`, `font-display`, …) |
 | `src/app/fonts.ts` | Self-hosted fonts (Crimson Pro + Manrope via @fontsource) |
 | `src/components/layout/` | AnnouncementBar, Header, DesktopNavigation, CategoryDropdown, MobileNavigation, SearchPanel, CartPreview, Logo |
 | `src/components/home/hero/` | HeroSection, HeroContent, HeroImage, LocationBadge |
+| `src/components/home/collections/` | CollectionsSection, CollectionsGrid, CollectionCard |
 | `src/components/decor/Ornaments.tsx` | Heritage SVG line art (mandala, landscape, flourishes) |
 
 ## Assets to replace
@@ -27,6 +29,8 @@ Both images are **temporary crops from the design mockup**. Drop in the original
 
 - `public/images/brand/sgs-king-logo.png` — original logo, square, transparent, ≥ 400×400
 - `public/images/hero/hero-dry-fruits.jpg` — hero photo, landscape ~4:3, ≥ 2000px wide
+- `public/images/collections/*.svg` — **placeholder illustrations** for the 7 collections. Replace with
+  product photos (5:4, ~1200×960) and update each category's `image` in `src/content/categories.ts`.
 
 ## Not yet connected
 

@@ -77,17 +77,6 @@ export function HeroContent({ headingId }: { headingId: string }) {
             strokeWidth={2}
           />
         </Link>
-        <Link
-          href={hero.secondaryCta.href}
-          className={`${ctaBase} border-[1.5px] border-burgundy bg-ivory/70 text-burgundy hover:-translate-y-0.5 hover:bg-gold-pale active:translate-y-0`}
-        >
-          {hero.secondaryCta.label}
-          <ArrowRight
-            aria-hidden="true"
-            className="size-5 transition-transform duration-300 group-hover:translate-x-1"
-            strokeWidth={2}
-          />
-        </Link>
       </motion.div>
 
       {/* Mobile / tablet: landscape sketch with the location badge on top */}

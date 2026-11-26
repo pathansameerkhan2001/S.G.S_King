@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
 
 import { LeafSprig } from "@/components/decor/Ornaments";
-import { categories, categoryHref, routes } from "@/content/site";
+import { categories, categoryHref } from "@/content/categories";
+import { routes } from "@/content/site";
 import { useDismiss } from "@/hooks/useDismiss";
 
 type CategoryDropdownProps = {
@@ -120,28 +121,28 @@ export function CategoryDropdown({ label, active, linkClassName }: CategoryDropd
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
             onKeyDown={onPanelKeyDown}
-            className="absolute left-1/2 top-full z-50 w-[600px] -translate-x-1/2 pt-5"
+            className="absolute left-1/2 top-full z-50 w-[580px] -translate-x-1/2 pt-5"
           >
             <div className="relative overflow-hidden rounded-2xl border border-gold/35 bg-ivory shadow-card">
               {/* Gold hairline at the top */}
               <div aria-hidden="true" className="h-1 bg-gradient-to-r from-gold/0 via-gold to-gold/0" />
-              <div className="grid grid-cols-[1fr_200px]">
-                <nav aria-label="Dry fruit categories" className="p-5">
+              <div className="grid grid-cols-[1fr_210px]">
+                <nav aria-label="Product categories" className="p-5">
                   <p className="mb-3 px-3 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-umber">
                     Shop by category
                   </p>
-                  <ul className="grid grid-cols-2 gap-x-2 gap-y-0.5">
+                  <ul className="grid gap-0.5">
                     {categories.map((category) => (
                       <li key={category.slug}>
                         <Link
                           href={categoryHref(category.slug)}
                           data-menu-item
                           onClick={close}
-                          className="group flex items-center gap-2.5 whitespace-nowrap rounded-lg px-3 py-2 font-display text-[1.1rem] text-ink transition-colors hover:bg-gold-pale hover:text-burgundy focus-visible:bg-gold-pale focus-visible:text-burgundy"
+                          className="group flex items-center gap-2.5 whitespace-nowrap rounded-lg px-3 py-1.5 font-display text-[1.1rem] text-ink transition-colors hover:bg-gold-pale hover:text-burgundy focus-visible:bg-gold-pale focus-visible:text-burgundy"
                         >
                           <span
                             aria-hidden="true"
-                            className="size-1.5 rotate-45 bg-gold/60 transition-colors group-hover:bg-burgundy"
+                            className="size-1.5 shrink-0 rotate-45 bg-gold/60 transition-colors group-hover:bg-burgundy"
                           />
                           {category.name}
                         </Link>
@@ -157,7 +158,7 @@ export function CategoryDropdown({ label, active, linkClassName }: CategoryDropd
                       Handpicked &amp; hygienically packed
                     </p>
                     <p className="mt-1.5 font-sans text-xs leading-relaxed text-umber">
-                      Premium dry fruits, packed fresh from Kadapa, Rayalaseema.
+                      Traditional products, packed fresh from Kadapa, Rayalaseema.
                     </p>
                   </div>
                   <Link

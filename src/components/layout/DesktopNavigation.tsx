@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { categoriesBasePath } from "@/content/categories";
 import { navigation } from "@/content/site";
 import { isActivePath as isActive } from "@/lib/nav";
 
@@ -29,7 +30,7 @@ export function DesktopNavigation() {
             {item.kind === "categories" ? (
               <CategoryDropdown
                 label={item.label}
-                active={pathname.startsWith("/categories")}
+                active={pathname.startsWith(categoriesBasePath)}
                 linkClassName={linkClassName}
               />
             ) : (
