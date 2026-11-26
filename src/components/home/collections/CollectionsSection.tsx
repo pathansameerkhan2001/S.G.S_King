@@ -1,7 +1,7 @@
 import { GoldFlourish, LeafSprig, Mandala } from "@/components/decor/Ornaments";
 import { collectionsSection } from "@/content/site";
 
-import { CollectionsGrid } from "./CollectionsGrid";
+import { CollectionsCarousel } from "./CollectionsCarousel";
 
 export function CollectionsSection() {
   return (
@@ -34,10 +34,11 @@ export function CollectionsSection() {
             {collectionsSection.description}
           </p>
         </header>
+      </div>
 
-        <div className="mx-auto max-w-[1280px]">
-          <CollectionsGrid />
-        </div>
+      {/* Full-bleed within the section; edges fade out softly */}
+      <div className="mx-auto w-full max-w-[1600px]">
+        <CollectionsCarousel />
       </div>
     </section>
   );

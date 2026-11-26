@@ -19,7 +19,7 @@ npm run build
 | `src/app/fonts.ts` | Self-hosted fonts (Crimson Pro + Manrope via @fontsource) |
 | `src/components/layout/` | AnnouncementBar, Header, DesktopNavigation, CategoryDropdown, MobileNavigation, SearchPanel, CartPreview, Logo |
 | `src/components/home/hero/` | HeroSection, HeroContent, HeroImage, LocationBadge |
-| `src/components/home/collections/` | CollectionsSection, CollectionsGrid, CollectionCard |
+| `src/components/home/collections/` | CollectionsSection, CollectionsCarousel (auto-scrolling infinite loop), CollectionCard |
 | `src/components/decor/Ornaments.tsx` | Heritage SVG line art (mandala, landscape, flourishes) |
 
 ## Assets to replace
