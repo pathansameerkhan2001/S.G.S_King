@@ -16,6 +16,8 @@ npm run build
 | `src/content/categories.ts` | **Single source of truth for product categories** (names, slugs, images, routes) |
 | `src/content/products.ts` | **Product catalogue (demo data)**: names, variants, prices, images, ratings. Replace with API data later |
 | `src/content/combos.ts` | **Combo products (demo data)**: admin-ready shape (items, pack size, availability, display order) |
+| `src/content/qualityTags.ts` | Brand-quality tags under the hero. Claim tags (organic, etc.) are **disabled until verified** |
+| `src/content/sweets.ts` | **Sweets & Chikkis (demo data)**: categories, weight variants, badges, optional ingredients |
 | `src/content/bestSellers.ts` | Best Sellers section copy and trust highlights |
 | `src/content/site.ts` | Copy, navigation, routes and brand image paths |
 | `src/app/globals.css` | Brand theme tokens (`bg-burgundy`, `text-gold`, `font-display`, …) |
@@ -25,7 +27,8 @@ npm run build
 | `src/components/home/collections/` | CollectionsSection, CollectionsCarousel (auto-scrolling infinite loop), CollectionCard |
 | `src/components/home/best-sellers/` | BestSellersSection, BestSellersGrid, TrustStrip |
 | `src/components/home/combos/` | ComboProductsSection, ComboCarousel (scroll-snap + arrows), ComboQuickView (native dialog) |
-| `src/components/product/` | BestSellerProductCard, AddToCartButton, ShareProductButton, WishlistButton, ProductPrice, ProductRating |
+| `src/components/home/quality-tags/`, `src/components/home/sweets/` | QualityTagsStrip; SweetsSection, SweetsBrowser (filters), SweetQuickView |
+| `src/components/product/` | BestSellerProductCard, ComboProductCard, SweetProductCard, ProductCarousel (generic), QuickViewDialog (generic), AddToCartButton, ShareProductButton, WishlistButton, ProductPrice, ProductRating |
 | `src/lib/` | `share.ts` (Web Share + copy fallback), `wishlist.ts` (frontend-only), `cart/useAddToCart.ts` (**demo, no cart backend**), `format.ts` |
 | `src/components/decor/Ornaments.tsx` | Heritage SVG line art (mandala, landscape, flourishes) |
 
@@ -48,3 +51,4 @@ Best-seller products and prices in `src/content/products.ts` are **demo data**; 
 collection illustrations. `rating` is `null` for all products (no real reviews yet), so no stars are shown.
 Add to Cart only simulates success (`src/lib/cart/useAddToCart.ts`); the wishlist is in-memory only.
 Combo products in `src/content/combos.ts` are **demo data**, with images reusing the collection illustrations.
+Sweets & Chikkis products in `src/content/sweets.ts` are **demo data**; no ingredient lists are set (Quick View shows them only when real data is added).
