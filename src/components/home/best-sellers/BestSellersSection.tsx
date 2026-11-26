@@ -13,7 +13,7 @@ export function BestSellersSection() {
   return (
     <section
       aria-labelledby="best-sellers-heading"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-cream via-[#faf2e4] to-ivory py-14 sm:py-16 lg:py-24"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-cream via-[#faf2e4] to-ivory pb-14 pt-8 sm:pb-16 sm:pt-10 lg:pb-24 lg:pt-12"
     >
       <span
         aria-hidden="true"

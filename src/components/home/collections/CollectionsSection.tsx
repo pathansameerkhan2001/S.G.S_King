@@ -7,7 +7,7 @@ export function CollectionsSection() {
   return (
     <section
       aria-labelledby="collections-heading"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-ivory via-ivory to-cream py-14 sm:py-16 lg:py-24"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-ivory via-ivory to-cream pb-8 pt-14 sm:pb-10 sm:pt-16 lg:pb-12 lg:pt-24"
     >
       {/* Heritage accents */}
       <Mandala className="pointer-events-none absolute -right-[120px] top-6 -z-10 size-[300px] text-gold opacity-[0.14] lg:size-[380px]" />
