@@ -1,3 +1,4 @@
+import { BestSellersSection } from "@/components/home/best-sellers/BestSellersSection";
 import { CollectionsSection } from "@/components/home/collections/CollectionsSection";
 import { HeroSection } from "@/components/home/hero/HeroSection";
 
@@ -6,6 +7,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <CollectionsSection />
+      <BestSellersSection />
     </>
   );
 }

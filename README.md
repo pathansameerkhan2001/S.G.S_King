@@ -14,12 +14,17 @@ npm run build
 | Path | Purpose |
 | --- | --- |
 | `src/content/categories.ts` | **Single source of truth for product categories** (names, slugs, images, routes) |
+| `src/content/products.ts` | **Product catalogue (demo data)**: names, variants, prices, images, ratings. Replace with API data later |
+| `src/content/bestSellers.ts` | Best Sellers section copy and trust highlights |
 | `src/content/site.ts` | Copy, navigation, routes and brand image paths |
 | `src/app/globals.css` | Brand theme tokens (`bg-burgundy`, `text-gold`, `font-display`, …) |
 | `src/app/fonts.ts` | Self-hosted fonts (Crimson Pro + Manrope via @fontsource) |
 | `src/components/layout/` | AnnouncementBar, Header, DesktopNavigation, CategoryDropdown, MobileNavigation, SearchPanel, CartPreview, Logo |
 | `src/components/home/hero/` | HeroSection, HeroContent, HeroImage, LocationBadge |
 | `src/components/home/collections/` | CollectionsSection, CollectionsCarousel (auto-scrolling infinite loop), CollectionCard |
+| `src/components/home/best-sellers/` | BestSellersSection, BestSellersGrid, TrustStrip |
+| `src/components/product/` | BestSellerProductCard, AddToCartButton, ShareProductButton, WishlistButton, ProductPrice, ProductRating |
+| `src/lib/` | `share.ts` (Web Share + copy fallback), `wishlist.ts` (frontend-only), `cart/useAddToCart.ts` (**demo, no cart backend**), `format.ts` |
 | `src/components/decor/Ornaments.tsx` | Heritage SVG line art (mandala, landscape, flourishes) |
 
 ## Assets to replace
@@ -34,5 +39,9 @@ Both images are **temporary crops from the design mockup**. Drop in the original
 
 ## Not yet connected
 
-Routes `/shop`, `/categories/[slug]`, `/our-story`, `/contact`, `/account`, `/cart` do not exist yet.
+Routes `/shop`, `/products/[slug]`, `/categories/[slug]`, `/our-story`, `/contact`, `/account`, `/cart` do not exist yet.
 Search submits `?q=` to `/shop`; the cart count is a prop (`<Header cartCount={…} />`) with no store behind it.
+
+Best-seller products and prices in `src/content/products.ts` are **demo data**; product images temporarily reuse the
+collection illustrations. `rating` is `null` for all products (no real reviews yet), so no stars are shown.
+Add to Cart only simulates success (`src/lib/cart/useAddToCart.ts`); the wishlist is in-memory only.
