@@ -66,7 +66,8 @@ export const routes = {
   wishlist: "/wishlist",
   checkout: "/checkout",
   contact: "/contact",
-  account: "/account",
+  /** Account icon → admin sign-in (customer accounts are not offered). */
+  account: "/admin/login",
   cart: "/cart",
   search: "/search",
 } as const;

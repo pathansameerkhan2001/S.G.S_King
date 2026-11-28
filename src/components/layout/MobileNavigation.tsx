@@ -177,7 +177,7 @@ export function MobileNavigation({ open, id, onClose }: MobileNavigationProps) {
                     className={`${linkBase} ${linkState(false)} justify-start gap-3`}
                   >
                     <User aria-hidden="true" className="size-5 text-gold-deep" strokeWidth={1.6} />
-                    My Account
+                    Account
                   </Link>
                 </li>
               </ul>
